@@ -154,13 +154,13 @@ submitBtn.addEventListener('click',(e)=>{
     let email = document.getElementById('email');
     let number = document.getElementById('number');
 
-    let ran=[1,2,3,4,5,6,7,8,9,1,3,5,8,9,5,4,8,,5];
-    function getRandomNumber(){
-        return Math.floor(Math.random()*ran.length)
-    }
+    // let ran=[1,2,3,4,5,6,7,8,9,1,3,5,8,9,5,4,8,,5];
+    // function getRandomNumber(){
+    //     return Math.floor(Math.random()*ran.length)
+    // }
     //Set Value And LocalStorage
     let array=[];
-   data=`${getRandomNumber()}`
+   data=`${Date.now()}`
     
    
    name = name.value;
