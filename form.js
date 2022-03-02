@@ -150,17 +150,17 @@ function manageData(){
 				setCrudData(data);
 			}else{
 				arr.push({                                     
-                		name,
-                        Lname,
-                        mail,
-                        num,
+                                   name,
+                                   Lname,
+                                   mail,
+                                   num,
                                  });
 				setCrudData(arr);
 			}
 			document.getElementById('msg').innerHTML='Data added';
 		}else{
 			let arr=getCrudData();
-		           	arr[id]=name;
+			arr[id]=name;
                      arr[id]=Lname;
                      arr[id]=mail;
                      arr[id]=num;
@@ -170,8 +170,8 @@ function manageData(){
 		}
 		document.getElementById('name').value='';
 		document.getElementById('Lname').value='';
-        document.getElementById('email').value='';
-        document.getElementById('number').value='';
+       	mail=document.getElementById('email').value='';
+       	num=document.getElementById('number').value='';
 		selectData();
 	}
 }
@@ -182,7 +182,7 @@ function selectData(){
 		let html='';
 		let sno=1;
 		for(let k in arr){
-			html=html+`<tr><td>${sno}</td><td>${arr[k]}}><td><a href="javascript:void(0)" onclick="editData(${k})">Edit</a>&nbsp;<a href="javascript:void(0)" onclick="deleteData(${k})">Delete</a></td></tr>`;
+			html=html+`<tr><td>${sno}</td><td>${arr[k].name} ${arr[k].Lname}<td><td>${arr[k].mail}<td>${arr[k].num}<td><a href="javascript:void(0)" onclick="editData(${k})">Edit</a>&nbsp;<a href="javascript:void(0)" onclick="deleteData(${k})">Delete</a></td></tr>`;
 			sno++;
 		}
 		document.getElementById('root').innerHTML=html;
