@@ -160,10 +160,10 @@ function manageData(){
 			document.getElementById('msg').innerHTML='Data added';
 		}else{
 			let arr=getCrudData();
-			arr[id]=name;
-                     arr[id]=Lname;
-                     arr[id]=mail;
-                     arr[id]=num;
+			         arr[id].name=name;
+                     arr[id].Lname=Lname;
+                     arr[id].mail=mail;
+                     arr[id].num=num;
 
 			setCrudData(arr);
 			document.getElementById('msg').innerHTML='Data updated';
@@ -195,10 +195,12 @@ function selectData(){
 function editData(rid){
 	id=rid;
 	let arr=getCrudData();
-	document.getElementById('name').value=arr[rid];
-       document.getElementById('Lname').value=arr[rid];
-       document.getElementById('email').value=arr[rid];
-       document.getElementById('number').value=arr[rid];
+	document.getElementById('name').value=arr[rid].name;
+       document.getElementById('Lname').value=arr[rid].Lname;
+       document.getElementById('email').value=arr[rid].mail;
+       document.getElementById('number').value=arr[rid].num;
+	   setCrudData(arr);
+	selectData();
 }
 
 function deleteData(rid){
