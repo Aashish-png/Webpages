@@ -182,7 +182,8 @@ function selectData(){
 		let html='';
 		let sno=1;
 		for(let k in arr){
-			html=html+`<tr><td>${sno}</td><td>${arr[k].name} ${arr[k].Lname}<td><td>${arr[k].mail}<td>${arr[k].num}<td><a href="javascript:void(0)" onclick="editData(${k})">Edit</a>&nbsp;<a href="javascript:void(0)" onclick="deleteData(${k})">Delete</a></td></tr>`;
+			html=html+`<tr><td>${sno}</td><td>${arr[k].name} ${arr[k].Lname}</td><td>${arr[k].mail}</td><td>${arr[k].num}</td><td><a href="javascript:void(0)" 
+			onclick="editData(${k})">Edit</a>&nbsp;<a href="javascript:void(0)" onclick="deleteData(${k})">Delete</a></td></tr>`;
 			sno++;
 		}
 		document.getElementById('root').innerHTML=html;
@@ -224,74 +225,7 @@ sub.addEventListener('click',(e)=>{
 
 //********************************************************** */
 ///*************************************************************
-/************************************************************ */
-// const DisForm = document.getElementById("formId");
-// const disDiv = document.querySelector(".display");
-// const fnameInput = DisForm["fname"];
-// const LnameInput = DisForm["lname"];
-// const EmailInput = DisForm["email"];
-// const NumberInput = DisForm["number"];
-
-// var arry = JSON.parse(localStorage.getItem("data")) || [];
-
-// const addData = (fname,lname, email,number) => {//
-//   arry.push({                                     //function add to add
-//     fname,
-//     lname,
-//     email,
-//     number,
-//   });
-//   localStorage.setItem("data", JSON.stringify(arry));
-//   return { fname,lname,email,number }
-// };
-// const createDataElement = ({ fname, lname, email, number }) => {
-//     // Create elements
-//     const disdiv2 = document.createElement("div");
-//     disdiv2.id="remove";
-//     const DisName = document.createElement("h2");
-//     // const DisLname = document.createElement("p");
-//     const disEmail = document.createElement("p");
-//     const disNumber = document.createElement("p");
-//     const editbtn=document.createElement("button");
-//     const deleteBtn=document.createElement("button");
-//     deleteBtn.className='del1';
-//     editbtn.className="editbtn1";
-//     editbtn.id='edi1'
-
-//     editbtn.appendChild(document.createTextNode("Edit"))
-//     deleteBtn.appendChild(document.createTextNode("Delete"))
-//      // Fill the content
-//   DisName.innerText = " name: " + fname + " "+lname;
-//   disEmail.innerText = " email : " + email;
-//   disNumber.innerText = " number: " + number;
-
-
-// disdiv2.append(DisName,disEmail,disNumber,editbtn,deleteBtn);
-// disDiv.appendChild(disdiv2)
-// };
-
-// arry.forEach(createDataElement);
- 
-// var sub=document.getElementById("btn")
-
-// sub.addEventListener('click',(e)=>{
-//   e.preventDefault();
-
-//   const newData = addData(
-//     fnameInput.value,
-//     LnameInput.value,
-//     EmailInput.value,
-//     NumberInput.value,
-//   );
- 
-//   createDataElement(newData);
-
-//   fnameInput.value = "";
-//   LnameInput.value = "";
-//   EmailInput.value = "";
-//   NumberInput.value="";
-// });
-
+/************************************************************ *
 
 
 ////********************************************* */
