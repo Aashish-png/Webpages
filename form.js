@@ -107,25 +107,55 @@ button11.appendChild(document.createTextNode('Submit'));
 form.appendChild(button11);
 
 
-//butoon 2
 
-// var button12=document.createElement('button')
 
-// button12.className='btn1';
-// button12.id='btn2';
-
-// button12.appendChild(document.createTextNode('Reset'));
-
-// form.appendChild(button12);
-
-/////to display created a div ***************
+///to display msg created a div ***************
 
 var div2=document.createElement('div');
-div2.className='display';
-div2.id='display1';
+
+div2.id='msg';
 
 var sec1= document.querySelector('#sectionid');
 sec1.appendChild(div2);
+//created a table 
+var table=document.createElement('table');
+sec1.appendChild(table);
+//thead
+var thead=document.createElement('thead');
+table.appendChild(thead);
+
+//tr
+var tr=document.createElement('tr');
+thead.appendChild(tr);
+
+//td
+var td=document.createElement('td');
+var td1=document.createElement('td');
+var td2=document.createElement('td');
+var td3=document.createElement('td');
+var td4=document.createElement('td');
+tr.append(td,td1,td2,td3,td4);
+//text node
+var tdx=document.createTextNode('S.No');
+td.appendChild(tdx);
+var tdx1=document.createTextNode('Name');
+td1.appendChild(tdx1);
+var tdx2=document.createTextNode('Email');
+td2.appendChild(tdx2);
+var tdx3=document.createTextNode('Number');
+td3.appendChild(tdx3);
+var tdx4=document.createTextNode('Operation');
+td4.appendChild(tdx4);
+
+//tbody
+var tbody=document.createElement("tbody");
+tbody.id='root';
+table.appendChild(tbody);
+
+
+
+
+
 ///&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&###############################
 //#######################################################
@@ -225,64 +255,6 @@ sub.addEventListener('click',(e)=>{
   e.preventDefault();
   manageData();})
 
-//********************************************************** */
-///*************************************************************
-/************************************************************ *
-
-
-////********************************************* */
-
-// var submitBtn=document.querySelector('#btn');
-// var resetBtn=document.querySelector('#btn2');
-
-// resetBtn.addEventListener('click',(e)=>{
-//     e.preventDefault();
-//     let name = document.getElementById('name');
-//     let Lname = document.getElementById('Lname');
-//     let email = document.getElementById('email');
-//     let number = document.getElementById('number');
-    
-
-//     name.value=" ";
-//     Lname.value=" ";
-//     email.value=" ";
-//     number.value=" ";
-    
-// })
-
-
-// submitBtn.addEventListener('click',(e)=>{
-//     e.preventDefault();
-//     let name = document.getElementById('name');
-//     let Lname = document.getElementById('Lname');
-//     let email = document.getElementById('email');
-//     let number = document.getElementById('number');
-
-   
-//     let array=[];
-//    data=`${Date.now()}`
-    
-   
-//    name = name.value;
-//     array.push(name)
-//    // localStorage.setItem('name', name);
-
-//     Lname=Lname.value;
-//     //localStorage.setItem('Lname',Lname)
-//     array.push(Lname)
-    
-//     email = email.value;
-//     array.push(email)
-//     //localStorage.setItem('email', email);
-
-//     number = number.value;
-//     array.push(number)
-//     //localStorage.setItem('number', number);
-//     localStorage.setItem(data,JSON.stringify(array))
-    
-   
-    
-// })
 
 
 //******************************************************************
