@@ -20,13 +20,15 @@ var newDiv=document.createElement('div');
 newDiv.className='container';
 newDiv.id='container1';
 
-document.querySelector('#sectionid').appendChild(newDiv);
-
+var sec1= document.querySelector('#sectionid');
+sec1.appendChild(newDiv);
 newDiv.innerHTML='<h1> Student details form </h1>'
+////  created a form
+
 
 var form=document.createElement('form');
 form.className='form_passing';
-
+form.id='formId'
 newDiv.appendChild(form);
 
 //label*************************
@@ -107,17 +109,249 @@ form.appendChild(button11);
 
 //butoon 2
 
-var button12=document.createElement('button')
+// var button12=document.createElement('button')
 
-button12.className='btn1';
-button12.id='btn2';
+// button12.className='btn1';
+// button12.id='btn2';
 
-button12.appendChild(document.createTextNode('Reset'));
+// button12.appendChild(document.createTextNode('Reset'));
 
-form.appendChild(button12);
+// form.appendChild(button12);
+
+/////to display created a div ***************
+
+var div2=document.createElement('div');
+div2.className='display';
+div2.id='display1';
+
+var sec1= document.querySelector('#sectionid');
+sec1.appendChild(div2);
+///&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&###############################
+//#######################################################
+let id="no";
+//localStorage.clear();
+selectData();
+function manageData(){
+	document.getElementById('msg').innerHTML="";
+	let name=document.getElementById('name').value;
+       let Lname=document.getElementById('Lname').value;
+       let mail=document.getElementById('email').value;
+       let num=document.getElementById('number').value;
+
+	if(name==''){
+		document.getElementById('msg').innerHTML='Please enter your name';
+	}else{
+		//console.log(id);
+		if(id=='no'){
+			let arr=getCrudData();
+			if(arr==null){
+				let data=[{name,Lname,mail,num}];
+				setCrudData(data);
+			}else{
+				arr.push({                                     
+                		name,
+                        Lname,
+                        mail,
+                        num,
+                                 });
+				setCrudData(arr);
+			}
+			document.getElementById('msg').innerHTML='Data added';
+		}else{
+			let arr=getCrudData();
+		           	arr[id]=name;
+                     arr[id]=Lname;
+                     arr[id]=mail;
+                     arr[id]=num;
+
+			setCrudData(arr);
+			document.getElementById('msg').innerHTML='Data updated';
+		}
+		document.getElementById('name').value='';
+		document.getElementById('Lname').value='';
+        document.getElementById('email').value='';
+        document.getElementById('number').value='';
+		selectData();
+	}
+}
+
+function selectData(){
+	let arr=getCrudData();
+	if(arr!=null){
+		let html='';
+		let sno=1;
+		for(let k in arr){
+			html=html+`<tr><td>${sno}</td><td>${arr[k]}}><td><a href="javascript:void(0)" onclick="editData(${k})">Edit</a>&nbsp;<a href="javascript:void(0)" onclick="deleteData(${k})">Delete</a></td></tr>`;
+			sno++;
+		}
+		document.getElementById('root').innerHTML=html;
+              
+	
+	}
+}
+
+function editData(rid){
+	id=rid;
+	let arr=getCrudData();
+	document.getElementById('name').value=arr[rid];
+       document.getElementById('Lname').value=arr[rid];
+       document.getElementById('email').value=arr[rid];
+       document.getElementById('number').value=arr[rid];
+}
+
+function deleteData(rid){
+	let arr=getCrudData();
+	arr.splice(rid,1);
+	setCrudData(arr);
+	selectData();
+}
+
+function getCrudData(){
+	let arr=JSON.parse(localStorage.getItem('crud'));
+	return arr;
+}
+
+function setCrudData(arr){
+	localStorage.setItem('crud',JSON.stringify(arr));
+}
+
+var sub=document.getElementById("btn")
+
+sub.addEventListener('click',(e)=>{
+  e.preventDefault();
+  manageData();})
+
+//********************************************************** */
+///*************************************************************
+/************************************************************ */
+// const DisForm = document.getElementById("formId");
+// const disDiv = document.querySelector(".display");
+// const fnameInput = DisForm["fname"];
+// const LnameInput = DisForm["lname"];
+// const EmailInput = DisForm["email"];
+// const NumberInput = DisForm["number"];
+
+// var arry = JSON.parse(localStorage.getItem("data")) || [];
+
+// const addData = (fname,lname, email,number) => {//
+//   arry.push({                                     //function add to add
+//     fname,
+//     lname,
+//     email,
+//     number,
+//   });
+//   localStorage.setItem("data", JSON.stringify(arry));
+//   return { fname,lname,email,number }
+// };
+// const createDataElement = ({ fname, lname, email, number }) => {
+//     // Create elements
+//     const disdiv2 = document.createElement("div");
+//     disdiv2.id="remove";
+//     const DisName = document.createElement("h2");
+//     // const DisLname = document.createElement("p");
+//     const disEmail = document.createElement("p");
+//     const disNumber = document.createElement("p");
+//     const editbtn=document.createElement("button");
+//     const deleteBtn=document.createElement("button");
+//     deleteBtn.className='del1';
+//     editbtn.className="editbtn1";
+//     editbtn.id='edi1'
+
+//     editbtn.appendChild(document.createTextNode("Edit"))
+//     deleteBtn.appendChild(document.createTextNode("Delete"))
+//      // Fill the content
+//   DisName.innerText = " name: " + fname + " "+lname;
+//   disEmail.innerText = " email : " + email;
+//   disNumber.innerText = " number: " + number;
+
+
+// disdiv2.append(DisName,disEmail,disNumber,editbtn,deleteBtn);
+// disDiv.appendChild(disdiv2)
+// };
+
+// arry.forEach(createDataElement);
+ 
+// var sub=document.getElementById("btn")
+
+// sub.addEventListener('click',(e)=>{
+//   e.preventDefault();
+
+//   const newData = addData(
+//     fnameInput.value,
+//     LnameInput.value,
+//     EmailInput.value,
+//     NumberInput.value,
+//   );
+ 
+//   createDataElement(newData);
+
+//   fnameInput.value = "";
+//   LnameInput.value = "";
+//   EmailInput.value = "";
+//   NumberInput.value="";
+// });
 
 
 
+////********************************************* */
+
+// var submitBtn=document.querySelector('#btn');
+// var resetBtn=document.querySelector('#btn2');
+
+// resetBtn.addEventListener('click',(e)=>{
+//     e.preventDefault();
+//     let name = document.getElementById('name');
+//     let Lname = document.getElementById('Lname');
+//     let email = document.getElementById('email');
+//     let number = document.getElementById('number');
+    
+
+//     name.value=" ";
+//     Lname.value=" ";
+//     email.value=" ";
+//     number.value=" ";
+    
+// })
+
+
+// submitBtn.addEventListener('click',(e)=>{
+//     e.preventDefault();
+//     let name = document.getElementById('name');
+//     let Lname = document.getElementById('Lname');
+//     let email = document.getElementById('email');
+//     let number = document.getElementById('number');
+
+   
+//     let array=[];
+//    data=`${Date.now()}`
+    
+   
+//    name = name.value;
+//     array.push(name)
+//    // localStorage.setItem('name', name);
+
+//     Lname=Lname.value;
+//     //localStorage.setItem('Lname',Lname)
+//     array.push(Lname)
+    
+//     email = email.value;
+//     array.push(email)
+//     //localStorage.setItem('email', email);
+
+//     number = number.value;
+//     array.push(number)
+//     //localStorage.setItem('number', number);
+//     localStorage.setItem(data,JSON.stringify(array))
+    
+   
+    
+// })
+
+
+//******************************************************************
+//*******************************************************************
+//*******************************************************************
 
 ///******Adding the background image*/
 
@@ -125,69 +359,6 @@ var body1=document.querySelector('body');
 body1.style.backgroundImage="url('back.jpg')";
 body1.style.backgroundSize='cover';
 body1.style.backgroundRepeat='no-repeat';
-
-////********************************************* */
-
-var submitBtn=document.querySelector('#btn');
-var resetBtn=document.querySelector('#btn2');
-
-resetBtn.addEventListener('click',(e)=>{
-    e.preventDefault();
-    let name = document.getElementById('name');
-    let Lname = document.getElementById('Lname');
-    let email = document.getElementById('email');
-    let number = document.getElementById('number');
-    
-
-    name.value=" ";
-    Lname.value=" ";
-    email.value=" ";
-    number.value=" ";
-    
-})
-
-
-submitBtn.addEventListener('click',(e)=>{
-    e.preventDefault();
-    let name = document.getElementById('name');
-    let Lname = document.getElementById('Lname');
-    let email = document.getElementById('email');
-    let number = document.getElementById('number');
-
-    // let ran=[1,2,3,4,5,6,7,8,9,1,3,5,8,9,5,4,8,,5];
-    // function getRandomNumber(){
-    //     return Math.floor(Math.random()*ran.length)
-    // }
-    //Set Value And LocalStorage
-    let array=[];
-   data=`${Date.now()}`
-    
-   
-   name = name.value;
-    array.push(name)
-   // localStorage.setItem('name', name);
-
-    Lname=Lname.value;
-    //localStorage.setItem('Lname',Lname)
-    array.push(Lname)
-    
-    email = email.value;
-    array.push(email)
-    //localStorage.setItem('email', email);
-
-    number = number.value;
-    array.push(number)
-    //localStorage.setItem('number', number);
-    localStorage.setItem(data,JSON.stringify(array))
-    
-   
-    
-})
-
-
-//******************************************************************
-//*******************************************************************
-//*******************************************************************
 
 //submit btn style
 var formP =document.querySelector('.btn1');
@@ -198,24 +369,35 @@ formP.style.backgroundColor='rgb(255, 102, 102)'
 formP.style.marginLeft= '2px';
 formP.style.marginTop='10px';
 //*******
-//reset btn
-var formP2=document.querySelector('#btn2')
+// //reset btn
+// var formP2=document.querySelector('#btn2')
 
-formP2.style.borderRadius='20px';
-formP2.style. padding='10px 20px';
-formP2.style.backgroundColor='rgb(255, 102, 102)'
-formP2.style.marginLeft= '20px';
+// formP2.style.borderRadius='20px';
+// formP2.style. padding='10px 20px';
+// formP2.style.backgroundColor='rgb(255, 102, 102)'
+// formP2.style.marginLeft= '20px';
 
-//div 
+//div 1
 
-var div2=document.querySelector('.container');
+var div1=document.querySelector('.container');
 
-div2.style.background='Linear-gradient(to top left, #142952 50%, #0f1e3e 50%)';
-div2.style. marginTop= '100px';
-div2.style.marginLeft= '31%';
-div2.style.marginRight= '45%';
-div2.style.padding='20px 40px';
-div2.style.borderRadius= '10px';
+div1.style.background='Linear-gradient(to top left, #142952 50%, #0f1e3e 50%)';
+div1.style. marginTop= '100px';
+div1.style.marginLeft= '31%';
+div1.style.marginRight= '45%';
+div1.style.padding='20px 40px';
+div1.style.borderRadius= '10px';
+
+//div2 
+// div2.style.backgroundColor= "#111111";
+// div2.style.color="white";
+// div2.style.marginTop="2%";
+// div2.style.marginLeft= '30%';
+// div2.style.marginRight= '45%';
+// div2.style.padding='20px 40px';
+// div2.style.borderRadius= '10px';
+
+
 
 //*******form */
 
