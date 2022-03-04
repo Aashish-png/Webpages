@@ -36,7 +36,7 @@ newDiv.appendChild(form);
 var label0=document.createElement('label');
 label0.className='fname';
 
-label0.appendChild(document.createTextNode('First Name'));
+label0.appendChild(document.createTextNode('your name'));
 form.appendChild(label0);
 form.appendChild(document.createElement('br'));
 //input***********************************
@@ -152,15 +152,10 @@ var tbody=document.createElement("tbody");
 tbody.id='root';
 table.appendChild(tbody);
 
-
-
-
-
-///&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&###############################
 //#######################################################
 let id="no";
-//localStorage.clear();
+
 selectData();
 function manageData(){
 	document.getElementById('msg').innerHTML="";
@@ -172,7 +167,6 @@ function manageData(){
 	if(name==''){
 		document.getElementById('msg').innerHTML='Please enter your name';
 	}else{
-		//console.log(id);
 		if(id=='no'){
 			let arr=getCrudData();
 			if(arr==null){
@@ -277,13 +271,7 @@ formP.style.backgroundColor='rgb(255, 102, 102)'
 formP.style.marginLeft= '2px';
 formP.style.marginTop='10px';
 //*******
-// //reset btn
-// var formP2=document.querySelector('#btn2')
 
-// formP2.style.borderRadius='20px';
-// formP2.style. padding='10px 20px';
-// formP2.style.backgroundColor='rgb(255, 102, 102)'
-// formP2.style.marginLeft= '20px';
 
 //div 1
 
@@ -296,14 +284,14 @@ div1.style.marginRight= '45%';
 div1.style.padding='20px 40px';
 div1.style.borderRadius= '10px';
 
-//div2 
-// div2.style.backgroundColor= "#111111";
-// div2.style.color="white";
-// div2.style.marginTop="2%";
-// div2.style.marginLeft= '30%';
-// div2.style.marginRight= '45%';
-// div2.style.padding='20px 40px';
-// div2.style.borderRadius= '10px';
+div2 
+div2.style.backgroundColor= "#111111";
+div2.style.color="white";
+div2.style.marginTop="2%";
+div2.style.marginLeft= '30%';
+div2.style.marginRight= '45%';
+div2.style.padding='20px 40px';
+div2.style.borderRadius= '10px';
 
 
 
